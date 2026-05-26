@@ -1,0 +1,23 @@
+    <div class="products-grid">
+        {% for bouquet in bouquets %}
+            <article class="product-card">
+                {% if bouquet.image %}
+                    <img src="{{ bouquet.image.url }}" alt="{{ bouquet.name }}">
+                {% endif %}
+
+                <div class="product-content">
+                    <h2>{{ bouquet.name }}</h2>
+                    <p>{{ bouquet.description }}</p>
+
+                    <div class="product-footer">
+                        <span class="price">£{{ bouquet.price }}</span>
+                        <button class="small-btn demo-order-btn">
+                            Order Now
+                        </button>
+                    </div>
+                </div>
+            </article>
+        {% empty %}
+            <p>No bouquets have been added yet.</p>
+        {% endfor %}
+    </div>

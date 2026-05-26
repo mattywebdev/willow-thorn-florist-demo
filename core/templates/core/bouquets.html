@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Bouquets | Willow & Thorn
+{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+    <p class="eyebrow">Fresh arrangements</p>
+    <h1>Our Bouquets</h1>
+    <p>Handcrafted floral designs available for collection, local delivery, gifts and special occasions.</p>
+</section>
+
+<div class="bouquet-toolbar">
+
+    <div class="bouquet-categories">
+
+        <a href="{% url 'bouquets' %}"
+           class="{% if not request.GET.category %}active{% endif %}">
+            All
+        </a>
+
+        <a href="?category=birthday"
+           class="{% if request.GET.category == 'birthday' %}active{% endif %}">
+            Birthday
+        </a>
+
+        <a href="?category=wedding"
+           class="{% if request.GET.category == 'wedding' %}active{% endif %}">
+            Wedding
+        </a>
+
+        <a href="?category=sympathy"
+           class="{% if request.GET.category == 'sympathy' %}active{% endif %}">
+            Sympathy
+        </a>
+
+        <a href="?category=seasonal"
+           class="{% if request.GET.category == 'seasonal' %}active{% endif %}">
+            Seasonal
+        </a>
+
+    </div>
+
+    <form method="GET" class="sort-form">
+
+        {% if request.GET.category %}
+            <input
+                type="hidden"
+                name="category"
+                value="{{ request.GET.category }}"
+            >
+        {% endif %}
+
+        <select name="sort">
+
+            <option value=""
+                {% if not request.GET.sort %}selected{% endif %}
+                disabled>
+                Sort by
+            </option>
+
+            <option value="price_asc"
+                {% if request.GET.sort == 'price_asc' %}selected{% endif %}>
+                Price: Low to High
+            </option>
+
+            <option value="price_desc"
+                {% if request.GET.sort == 'price_desc' %}selected{% endif %}>
+                Price: High to Low
+            </option>
+
+            <option value="name"
+                {% if request.GET.sort == 'name' %}selected{% endif %}>
+                Name A–Z
+            </option>
+
+        </select>
+
+    </form>
+
+</div>
+
+<section class="products-section">
+<div id="products-container">
+    {% include 'partials/bouquet_grid.html' %}
+</div>
+</section>
+
+<div class="demo-modal" id="demoModal">
+    <div class="demo-modal-content">
+        <span class="close-modal">&times;</span>
+
+        <h3>Demo Website</h3>
+
+        <p>
+            This florist website is a demonstration project created by
+            Matty Web Dev.
+        </p>
+
+        <p>
+            A real client version could include online ordering,
+            payments, delivery booking and customer accounts.
+        </p>
+    </div>
+</div>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    function setupModalButtons() {
+
+        const modal = document.getElementById('demoModal');
+
+        const buttons = document.querySelectorAll('.demo-order-btn');
+
+        const closeBtn = document.querySelector('.close-modal');
+
+        buttons.forEach(button => {
+
+            button.addEventListener('click', () => {
+                modal.classList.add('show');
+            });
+
+        });
+
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('show');
+        });
+
+    }
+
+    const categoryLinks = document.querySelectorAll('.bouquet-categories a');
+    const sortSelect = document.querySelector('.sort-form select');
+    const productsContainer = document.getElementById('products-container');
+
+    async function loadBouquets(url) {
+
+        const response = await fetch(url, {
+            headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        });
+
+        const data = await response.json();
+
+        productsContainer.innerHTML = data.html;
+        setupModalButtons();
+    }
+
+    categoryLinks.forEach(link => {
+
+        link.addEventListener('click', async (e) => {
+
+            e.preventDefault();
+
+            const url = link.getAttribute('href');
+
+            history.pushState(null, '', url);
+
+            await loadBouquets(url);
+
+            categoryLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+        });
+
+    });
+
+    sortSelect.addEventListener('change', async () => {
+
+        const currentUrl = new URL(window.location.href);
+
+        currentUrl.searchParams.set('sort', sortSelect.value);
+
+        const url = currentUrl.toString();
+
+        history.pushState(null, '', url);
+
+        await loadBouquets(url);
+    });
+
+setupModalButtons();
+
+});
+
+</script>
+{% endblock %}

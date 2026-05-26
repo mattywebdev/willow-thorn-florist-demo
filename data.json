@@ -1,0 +1,190 @@
+[
+{
+    "model": "core.category",
+    "pk": 1,
+    "fields": {
+        "name": "Birthday",
+        "slug": "birthday"
+    }
+},
+{
+    "model": "core.category",
+    "pk": 2,
+    "fields": {
+        "name": "Wedding",
+        "slug": "wedding"
+    }
+},
+{
+    "model": "core.category",
+    "pk": 3,
+    "fields": {
+        "name": "Sympathy",
+        "slug": "sympathy"
+    }
+},
+{
+    "model": "core.category",
+    "pk": 4,
+    "fields": {
+        "name": "Seasonal",
+        "slug": "seasonal"
+    }
+},
+{
+    "model": "core.bouquet",
+    "pk": 1,
+    "fields": {
+        "name": "Spring Bloom",
+        "price": "18.00",
+        "description": "Soft pastel arrangement inspired by the freshness of spring mornings and blooming gardens.",
+        "image": "bouquets/Spring_Bloom_qt1WWqe.webp",
+        "is_featured": true,
+        "slug": "spring-bloom",
+        "category": 1
+    }
+},
+{
+    "model": "core.bouquet",
+    "pk": 2,
+    "fields": {
+        "name": "White Elegance",
+        "price": "22.00",
+        "description": "A timeless bouquet of delicate white flowers crafted for graceful and elegant occasions.",
+        "image": "bouquets/White_Elegance_8svNb5M.webp",
+        "is_featured": true,
+        "slug": "white-elegance",
+        "category": 3
+    }
+},
+{
+    "model": "core.bouquet",
+    "pk": 3,
+    "fields": {
+        "name": "Wild Meadow",
+        "price": "31.00",
+        "description": "A natural hand-tied arrangement featuring vibrant seasonal flowers with a countryside feel.",
+        "image": "bouquets/Wild_Meadow_5OivnD4.webp",
+        "is_featured": true,
+        "slug": "wild-meadow",
+        "category": 4
+    }
+},
+{
+    "model": "core.bouquet",
+    "pk": 4,
+    "fields": {
+        "name": "Pink Romance",
+        "price": "27.00",
+        "description": "Romantic pink tones carefully arranged to create a warm and heartfelt floral gift.",
+        "image": "bouquets/Pink_Romance_Pa6y6Mx.webp",
+        "is_featured": true,
+        "slug": "pink-romance",
+        "category": 4
+    }
+},
+{
+    "model": "core.bouquet",
+    "pk": 5,
+    "fields": {
+        "name": "Wedding Bliss",
+        "price": "34.00",
+        "description": "Elegant wedding bouquet designed to bring softness, beauty and sophistication to your special day.",
+        "image": "bouquets/Wedding_Bliss_hk1ysEk.webp",
+        "is_featured": true,
+        "slug": "wedding-bliss",
+        "category": 2
+    }
+},
+{
+    "model": "core.bouquet",
+    "pk": 6,
+    "fields": {
+        "name": "Sunset Bouquet",
+        "price": "28.00",
+        "description": "Warm orange and golden tones inspired by summer sunsets and evening skies.",
+        "image": "bouquets/Sunset_Bouquet_c79Cgkx.webp",
+        "is_featured": true,
+        "slug": "sunset-bouquet",
+        "category": 3
+    }
+},
+{
+    "model": "core.bouquet",
+    "pk": 7,
+    "fields": {
+        "name": "Velvet Rose",
+        "price": "34.00",
+        "description": "Deep red roses with soft greenery arranged for romantic evenings and special gestures.",
+        "image": "bouquets/Velvet_Rose.webp",
+        "is_featured": true,
+        "slug": "velvet-rose",
+        "category": 1
+    }
+},
+{
+    "model": "core.bouquet",
+    "pk": 8,
+    "fields": {
+        "name": "Golden Morning",
+        "price": "25.00",
+        "description": "Warm yellow blooms inspired by sunrise tones and cheerful seasonal colours.",
+        "image": "bouquets/Golden_Morning.webp",
+        "is_featured": true,
+        "slug": "golden-morning",
+        "category": 3
+    }
+},
+{
+    "model": "core.bouquet",
+    "pk": 9,
+    "fields": {
+        "name": "Ivory Grace",
+        "price": "18.00",
+        "description": "A refined white arrangement designed for elegant celebrations and timeless occasions.",
+        "image": "bouquets/Ivory_Grace.webp",
+        "is_featured": false,
+        "slug": "ivory-grace",
+        "category": 4
+    }
+},
+{
+    "model": "core.bouquet",
+    "pk": 10,
+    "fields": {
+        "name": "Lavender Whisper",
+        "price": "31.00",
+        "description": "Soft purple flowers blended with delicate textures for a calm and graceful feel.",
+        "image": "bouquets/Lavender_Whisper.webp",
+        "is_featured": true,
+        "slug": "lavender-whisper",
+        "category": 2
+    }
+},
+{
+    "model": "core.bouquet",
+    "pk": 11,
+    "fields": {
+        "name": "Blush Garden",
+        "price": "38.00",
+        "description": "A pastel bouquet featuring orange roses and fresh seasonal flowers with a gentle touch.",
+        "image": "bouquets/Blush_Garden.webp",
+        "is_featured": true,
+        "slug": "blush-garden",
+        "category": 2
+    }
+},
+{
+    "model": "core.bouquet",
+    "pk": 12,
+    "fields": {
+        "name": "Autumn Harvest",
+        "price": "24.00",
+        "description": "Rich orange and earthy floral tones inspired by crisp autumn days and rustic charm.",
+        "image": "bouquets/Autumn_Harvest.webp",
+        "is_featured": true,
+        "slug": "autumn-harvest",
+        "category": 1
+    }
+}
+]

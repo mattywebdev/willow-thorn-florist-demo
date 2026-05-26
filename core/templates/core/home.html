@@ -1,0 +1,177 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Willow & Thorn Florist
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="hero-content">
+        <p class="eyebrow">Local Florist in Crewe</p>
+
+        <h1>Elegant flowers handcrafted for every occasion.</h1>
+
+        <p>
+            Fresh bouquets, wedding arrangements and thoughtful floral gifts made with care.
+        </p>
+
+        <a href="{% url 'bouquets' %}" class="btn">Order Bouquet</a>
+    </div>
+</section>
+
+<section id="services" class="section services-section">
+
+    <p class="eyebrow">What we offer</p>
+
+    <h2>Flowers for every moment</h2>
+
+    <div class="cards">
+
+        <div class="card">
+
+            <div class="card-icon">🌸</div>
+
+            <h3>Fresh Bouquets</h3>
+
+            <p>
+                Beautiful seasonal arrangements for birthdays,
+                anniversaries and everyday surprises.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">💍</div>
+
+            <h3>Wedding Flowers</h3>
+
+            <p>
+                Elegant bridal bouquets, table pieces
+                and venue flowers tailored for your special day.
+            </p>
+
+        </div>
+
+        <div class="card">
+
+            <div class="card-icon">🤍</div>
+
+            <h3>Sympathy Flowers</h3>
+
+            <p>
+                Thoughtful floral tributes prepared
+                with care, compassion and respect.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="gallery" class="section gallery-section">
+
+    <p class="eyebrow">Our work</p>
+
+    <h2>Handmade arrangements</h2>
+
+    <div class="gallery">
+
+        <img src="{% static 'core/images/photo-1525310072745-f49212b5ac6d.webp' %}" alt="">
+        <img src="{% static 'core/images/photo-1487070183336-b863922373d4.webp' %}" alt="">
+        <img src="{% static 'core/images/photo-1561181286-d3fee7d55364.webp' %}" alt="">
+        <img src="{% static 'core/images/arrangement1.webp' %}" alt="">
+        <img src="{% static 'core/images/arrangement2.webp' %}" alt="">
+        <img src="{% static 'core/images/arrangement3.webp' %}" alt
+    </div>
+
+    </div>
+
+    <div class="featured-bouquets">
+    <h3>Featured Bouquets</h3>
+
+        <div class="featured-carousel">
+            <button class="carousel-btn prev" type="button">‹</button>
+
+            <div class="bouquet-slider">
+                {% for bouquet in featured_bouquets %}
+                    <article class="mini-product-card">
+                        {% if bouquet.image %}
+                            <img src="{{ bouquet.image.url }}" alt="{{ bouquet.name }}">
+                        {% endif %}
+
+                        <div>
+                            <h4>{{ bouquet.name }}</h4>
+                            <p>£{{ bouquet.price }}</p>
+                            <a href="{% url 'bouquets' %}" class="small-btn">View</a>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+
+            <button class="carousel-btn next" type="button">›</button>
+        </div>
+    </div>
+
+</section>
+
+<section id="contact" class="contact">
+
+    <div class="contact-left">
+
+        <p class="eyebrow">Visit us</p>
+
+        <h2>Order flowers today</h2>
+
+        <p>
+            Fresh handcrafted bouquets available for collection
+            and local delivery across Crewe.
+        </p>
+
+        <a href="{% url 'bouquets' %}" class="btn">
+            Browse Bouquets
+        </a>
+
+    </div>
+
+    <div class="contact-box">
+
+        <div class="contact-item">
+            <span>📞</span>
+            <p>01270 123456</p>
+        </div>
+
+        <div class="contact-item">
+            <span>✉️</span>
+            <p>hello@willowthornflorist.co.uk</p>
+        </div>
+
+        <div class="contact-item">
+            <span>📍</span>
+            <p>Crewe, Cheshire</p>
+        </div>
+
+        <div class="contact-item">
+            <span>🕒</span>
+            <p>Mon–Sat, 9am–5pm</p>
+        </div>
+
+    </div>
+    <div class="map-container">
+
+        <iframe
+            src="https://www.google.com/maps?q=Crewe&output=embed"
+            width="100%"
+            height="320"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+</section>
+
+{% endblock %}
